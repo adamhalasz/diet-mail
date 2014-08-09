@@ -12,7 +12,7 @@ npm install diet-mail
 
 ## **Usage**
 Let's make a simple folder structure like this:
-```
+```js
 /yourApp
     index.js
     /node_modules
@@ -20,7 +20,7 @@ Let's make a simple folder structure like this:
         test.html
 ```
 Setup the app in `index.js`:
-```
+```js
 // Require Diet
 require('diet');
 
@@ -72,7 +72,7 @@ new Mail(nodemailer_options, ect_options);
 
 ## **Options for app.mail()**
 This is a shorthand for `mail.sendMail` from nodemailer. Passing anything as an object for the *first* argument will change the defaults. 
-```
+```js
     app.mail({
         from: 'you@example.com',    // it's auth.user if not specified
         to: 'me@example.com',       // required. it's the recipient
