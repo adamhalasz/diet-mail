@@ -1,0 +1,24 @@
+{
+  "name": "diet-mail",
+  "version": "1.0.0",
+  "description": "Send emails with diet.",
+  "homepage": "http://github.com/adamhalasz/diet-mail/",
+  "keywords": [
+    "email",
+    "mail",
+    "email templates",
+    "email delivery",
+    "inbound",
+    "outbound",
+    "plugin",
+    "diet plugin",
+    "diet",
+    "dietjs",
+    "diet.js"
+  ],
+  "dependencies": {
+  	"nodemailer": ">=1.1.1",
+    "ect": ">=0.5.9",
+    "sugar": ">=1.4.1"
+  }
+}
