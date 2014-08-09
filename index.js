@@ -25,7 +25,7 @@ module.exports = function(options, ect_options){
 				} else {
 					var from = options.from ? options.from + ' <'+options.auth.user+'>' : options.auth.user ;
 				}
-				var sendMailOptions = merge({
+				var sendMailOptions = Object.merge({
 				    from	: from,
 				    to		: locals.to,
 				    subject	: locals.subject,
