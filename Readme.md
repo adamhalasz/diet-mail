@@ -27,6 +27,9 @@ require('diet');
 // Create App
 var app = new App();
 
+// Configure Domain
+app.domain('http://localhost:8000');
+
 // Plugin diet-mail
 var Mail = app.plugin('diet-mail');
 
@@ -44,7 +47,7 @@ app.mail = new Mail({
 });
 
 // Start Application
-app.start('http://localhost:8000');
+app.start();
 ```
 After you made Mail Instance you can send emails with it's return value `app.mail`:
 ```js
