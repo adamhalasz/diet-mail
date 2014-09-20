@@ -1,8 +1,8 @@
 var nodemailer = require('nodemailer');
 var ect = require('ect');
-require('sugar')
+require('sugar');
 
-module.exports = function(options, ect_options){
+exports = function(options, ect_options){
 	var mail = nodemailer.createTransport(options);
 	
 	var ect_options = ect_options || {};
@@ -46,3 +46,5 @@ module.exports = function(options, ect_options){
 		});
 	}
 }
+
+module.parent.return();
