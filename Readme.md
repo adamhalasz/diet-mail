@@ -22,16 +22,16 @@ Let's make a simple folder structure like this:
 Setup the app in `index.js`:
 ```js
 // Require Diet
-require('diet');
+var server = require('diet')
 
 // Create App
-var app = new App();
+var app = new server()
 
 // Configure Domain
-app.domain('http://localhost:8000');
+app.domain('http://localhost:8000')
 
 // Plugin diet-mail
-var Mail = app.plugin('diet-mail');
+var Mail = app.plugin('diet-mail')
 
 // Setup Mail Instance
 app.mail = new Mail({
@@ -44,10 +44,10 @@ app.mail = new Mail({
 	    pass: "123123"		                // smtp password
 	},
 	templates: app.path+'/mail/'            // template directory
-});
+})
 
 // Start Application
-app.start();
+app.start()
 ```
 After you made Mail Instance you can send emails with it's return value `app.mail`:
 ```js
@@ -56,7 +56,7 @@ app.mail({
     subject: 'Testing Diet-Mail',
     template: 'test.html',
     customKey: 'John Doe'
-});
+})
 ```
 You can create html templates in the template directory. `/yourApp/mail/test.html` could look like this:
 ```html
@@ -68,7 +68,7 @@ Notice the `{{-this.customKey}}`. Everything passed to `app.mail` is accessible 
 
 ## **Options for Mail Instance**
 ```js
-new Mail(nodemailer_options, ect_options);
+new Mail(nodemailer_options, ect_options)
 ```
 - You can use any option that [Nodemailer][1] has by passing it as an object for the *first* argument. 
 - You can use any option that [ECT][2] has by passing it as an object for the *second* argument. 
@@ -86,7 +86,7 @@ This is a shorthand for `mail.sendMail` from nodemailer. Passing anything as an 
             // any key is accesible from the template
             // you can assign account informations etc. to
             // customize emails.
-    });
+    })
 ```
 
 ## **License**
