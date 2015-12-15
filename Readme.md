@@ -1,5 +1,5 @@
 # **diet-mail**
-Send Emails with diet. 
+Send Emails with diet using NodeMailer and ECT.
 
 Based on:
 - [Nodemailer][1] for handling SMTP
@@ -25,16 +25,16 @@ Setup the app in `index.js`:
 var server = require('diet')
 
 // Create App
-var app = new server()
+var app = server()
 
 // Configure Domain
-app.domain('http://localhost:8000')
+app.listen('http://localhost:8000')
 
-// Plugin diet-mail
-var Mail = app.plugin('diet-mail')
+// Require Diet Mail
+var Mailer = require('diet-mail');
 
 // Setup Mail Instance
-app.mail = new Mail({
+app.mail = new Mailer({
 	host	: 'smtp.mandrillapp.com', 		// smtp hostname
 	port	: 587, 							// port for secure smtp
 	debug	: true,							// display debug log
@@ -46,8 +46,6 @@ app.mail = new Mail({
 	templates: app.path+'/mail/'            // template directory
 })
 
-// Start Application
-app.start()
 ```
 After you made Mail Instance you can send emails with it's return value `app.mail`:
 ```js
@@ -56,6 +54,8 @@ app.mail({
     subject: 'Testing Diet-Mail',
     template: 'test.html',
     customKey: 'John Doe'
+}, function(){
+    // callback
 })
 ```
 You can create html templates in the template directory. `/yourApp/mail/test.html` could look like this:
@@ -68,10 +68,10 @@ Notice the `{{-this.customKey}}`. Everything passed to `app.mail` is accessible 
 
 ## **Options for Mail Instance**
 ```js
-new Mail(nodemailer_options, ect_options)
+app.mail(locals, callback)
 ```
 - You can use any option that [Nodemailer][1] has by passing it as an object for the *first* argument. 
-- You can use any option that [ECT][2] has by passing it as an object for the *second* argument. 
+- Optional Callback 
 
 ## **Options for app.mail()**
 This is a shorthand for `mail.sendMail` from nodemailer. Passing anything as an object for the *first* argument will change the defaults. 

@@ -1,7 +1,7 @@
 {
   "name": "diet-mail",
-  "version": "1.0.4",
-  "description": "Send emails with diet.",
+  "version": "1.1.0",
+  "description": "Send Emails with diet using NodeMailer and ECT.",
   "homepage": "http://github.com/adamhalasz/diet-mail/",
   "keywords": [
     "email",
